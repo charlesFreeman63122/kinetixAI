@@ -93,12 +93,12 @@ const AnalyzeControls: React.FC = () => {
             </IonCardHeader>
             <IonCardContent className="card-content">
               <p className="card-description">Upload ladder logic, schematics, or control programs for AI analysis</p>
-              <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+              <div className="upload-control-wrap">
                 <input
                   type="file"
                   accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.gif,.svg,.dwg,.stp,.step"
                   onChange={handleFileUpload}
-                  style={{ display: 'none' }}
+                  className="hidden-file-input"
                   id="file-upload"
                 />
                 <label htmlFor="file-upload">
@@ -109,7 +109,7 @@ const AnalyzeControls: React.FC = () => {
                 </label>
               </div>
               {uploadedFile && (
-                <div style={{ fontSize: '0.9em', color: '#56A64B', textAlign: 'center' }}>
+                <div className="upload-success-text">
                   ✓ File uploaded successfully
                 </div>
               )}
@@ -182,10 +182,10 @@ const AnalyzeControls: React.FC = () => {
               <IonCardTitle className="card-title">Analysis Results</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{ textAlign: 'center', padding: '2rem', color: '#888' }}>
-                <IonIcon icon={analytics} size="large" style={{ marginBottom: '1rem' }} />
+              <div className="analysis-empty-state">
+                <IonIcon icon={analytics} size="large" className="analysis-empty-icon" />
                 <p>Upload a file or paste code to see AI-powered analysis results</p>
-                <p style={{ fontSize: '0.9em', marginTop: '0.5rem' }}>
+                <p className="analysis-empty-detail">
                   Results will include logic validation, optimization suggestions, and documentation
                 </p>
               </div>
@@ -198,15 +198,9 @@ const AnalyzeControls: React.FC = () => {
               <IonCardTitle className="card-title">Supported Formats</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div className="format-badge-group">
                 {['PDF', 'DOC', 'XLS', 'PNG', 'JPG', 'DWG', 'STEP', 'Ladder Logic'].map((format) => (
-                  <span key={format} style={{
-                    background: '#3274D9',
-                    color: 'white',
-                    padding: '0.25rem 0.5rem',
-                    borderRadius: '4px',
-                    fontSize: '0.8em'
-                  }}>
+                  <span key={format} className="format-badge">
                     {format}
                   </span>
                 ))}

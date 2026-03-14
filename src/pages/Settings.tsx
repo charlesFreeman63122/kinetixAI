@@ -15,9 +15,14 @@ import {
   IonRow,
   IonCol,
   IonList,
+  IonItem,
+  IonLabel,
+  IonSelect,
+  IonSelectOption,
+  IonToggle,
   IonButtons,
   IonBackButton,
-  IonToast
+  IonToast,
 } from '@ionic/react';
 import {
   settings,
@@ -27,14 +32,16 @@ import {
   hardwareChip,
   language,
   moon,
-  sunny
+  sunny,
+  notifications
 } from 'ionicons/icons';
 import './Home.scss';
 
 const Settings: React.FC = () => {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-  const [notifications, setNotificationsEnabled] = useState(true);
+  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [controlStandard, setControlStandard] = useState('IEC');
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [autoSave, setAutoSave] = useState(true);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -47,7 +54,7 @@ const Settings: React.FC = () => {
   const handleResetSettings = () => {
     setTheme('dark');
     setNotificationsEnabled(true);
-    setLanguage('en');
+    setSelectedLanguage('en');
     setControlStandard('IEC');
     setAutoSave(true);
     setToastMessage('Settings reset to defaults');
@@ -80,8 +87,8 @@ const Settings: React.FC = () => {
               <IonCardTitle className="card-title">Appearance</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <IonList style={{ background: 'transparent' }}>
-                <IonListItem style={{ '--background': 'transparent' }}>
+              <IonList className="transparent-list">
+                <IonItem className="transparent-item">
                   <IonIcon icon={colorPalette} slot="start" />
                   <IonLabel>Theme</IonLabel>
                   <IonSelect
@@ -92,9 +99,9 @@ const Settings: React.FC = () => {
                     <IonSelectOption value="dark">Dark (Tech)</IonSelectOption>
                     <IonSelectOption value="light">Light</IonSelectOption>
                   </IonSelect>
-                </IonListItem>
+                </IonItem>
 
-                <IonListItem style={{ '--background': 'transparent' }}>
+                <IonItem className="transparent-item">
                   <IonIcon icon={notifications ? sunny : moon} slot="start" />
                   <IonLabel>Dark Mode Animations</IonLabel>
                   <IonToggle
@@ -102,7 +109,7 @@ const Settings: React.FC = () => {
                     checked={theme === 'dark'}
                     onIonChange={(e) => setTheme(e.detail.checked ? 'dark' : 'light')}
                   />
-                </IonListItem>
+                </IonItem>
               </IonList>
             </IonCardContent>
           </IonCard>
@@ -113,8 +120,8 @@ const Settings: React.FC = () => {
               <IonCardTitle className="card-title">Control Standards</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <IonList style={{ background: 'transparent' }}>
-                <IonListItem style={{ '--background': 'transparent' }}>
+              <IonList className="transparent-list">
+                <IonItem className="transparent-item">
                   <IonIcon icon={hardwareChip} slot="start" />
                   <IonLabel>Default Standard</IonLabel>
                   <IonSelect
@@ -127,13 +134,13 @@ const Settings: React.FC = () => {
                     <IonSelectOption value="DIN">DIN Standards</IonSelectOption>
                     <IonSelectOption value="JIS">JIS Standards</IonSelectOption>
                   </IonSelect>
-                </IonListItem>
+                </IonItem>
 
-                <IonListItem style={{ '--background': 'transparent' }}>
+                <IonItem className="transparent-item">
                   <IonIcon icon={shield} slot="start" />
                   <IonLabel>Safety Compliance</IonLabel>
                   <IonToggle slot="end" checked={true} />
-                </IonListItem>
+                </IonItem>
               </IonList>
             </IonCardContent>
           </IonCard>
@@ -144,14 +151,14 @@ const Settings: React.FC = () => {
               <IonCardTitle className="card-title">AI Preferences</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <IonList style={{ background: 'transparent' }}>
-                <IonListItem style={{ '--background': 'transparent' }}>
+              <IonList className="transparent-list">
+                <IonItem className="transparent-item">
                   <IonIcon icon={language} slot="start" />
                   <IonLabel>Response Language</IonLabel>
                   <IonSelect
-                    value={language}
+                    value={selectedLanguage}
                     slot="end"
-                    onIonChange={(e) => setLanguage(e.detail.value)}
+                    onIonChange={(e) => setSelectedLanguage(e.detail.value)}
                   >
                     <IonSelectOption value="en">English</IonSelectOption>
                     <IonSelectOption value="es">Español</IonSelectOption>
@@ -159,19 +166,19 @@ const Settings: React.FC = () => {
                     <IonSelectOption value="fr">Français</IonSelectOption>
                     <IonSelectOption value="zh">中文</IonSelectOption>
                   </IonSelect>
-                </IonListItem>
+                </IonItem>
 
-                <IonListItem style={{ '--background': 'transparent' }}>
+                <IonItem className="transparent-item">
                   <IonIcon icon={notifications} slot="start" />
                   <IonLabel>AI Notifications</IonLabel>
                   <IonToggle
                     slot="end"
-                    checked={notifications}
+                    checked={notificationsEnabled}
                     onIonChange={(e) => setNotificationsEnabled(e.detail.checked)}
                   />
-                </IonListItem>
+                </IonItem>
 
-                <IonListItem style={{ '--background': 'transparent' }}>
+                <IonItem className="transparent-item">
                   <IonIcon icon={cloud} slot="start" />
                   <IonLabel>Auto-save Conversations</IonLabel>
                   <IonToggle
@@ -179,7 +186,7 @@ const Settings: React.FC = () => {
                     checked={autoSave}
                     onIonChange={(e) => setAutoSave(e.detail.checked)}
                   />
-                </IonListItem>
+                </IonItem>
               </IonList>
             </IonCardContent>
           </IonCard>
@@ -248,15 +255,15 @@ const Settings: React.FC = () => {
               <IonCardTitle className="card-title">About Kinetix AI</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{ textAlign: 'center' }}>
-                <h3 style={{ margin: '0 0 0.5rem 0', color: '#3274D9' }}>Version 1.0.0</h3>
-                <p style={{ fontSize: '0.9em', color: '#888', margin: '0.5rem 0' }}>
+              <div className="app-info-wrap">
+                <h3 className="app-info-version">Version 1.0.0</h3>
+                <p className="app-info-description">
                   AI-powered automation control assistant for engineers
                 </p>
-                <p style={{ fontSize: '0.8em', color: '#666' }}>
+                <p className="app-info-meta">
                   Built with Ionic React • Powered by advanced AI
                 </p>
-                <div style={{ marginTop: '1rem', fontSize: '0.8em', color: '#888' }}>
+                <div className="app-info-footer">
                   <p>© 2026 Kinetix Technologies</p>
                   <p>All rights reserved</p>
                 </div>

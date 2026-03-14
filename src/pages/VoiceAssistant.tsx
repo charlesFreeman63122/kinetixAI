@@ -26,7 +26,8 @@ import {
   volumeHigh,
   chatbubbleEllipses,
   settings,
-  helpCircle
+  helpCircle,
+  pause
 } from 'ionicons/icons';
 import './Home.scss';
 
@@ -92,7 +93,8 @@ const VoiceAssistant: React.FC = () => {
     };
 
     recognitionRef.current.onresult = (event: SpeechRecognitionEvent) => {
-      const transcript = (event.results[0] as SpeechRecognitionAlternative)[0].transcript;
+      const result = event.results[0] as SpeechRecognitionResult;
+      const transcript = result[0].transcript;
       setTranscript(transcript);
       handleVoiceQuery(transcript);
     };
@@ -183,19 +185,18 @@ const VoiceAssistant: React.FC = () => {
               <IonCardTitle className="card-title">Voice Commands</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+              <div className="voice-command-wrap">
                 <IonButton
                   expand="block"
-                  className="tech-button"
+                  className="tech-button voice-command-button"
                   color={isRecording ? "danger" : "primary"}
                   onClick={isRecording ? stopRecording : startRecording}
-                  style={{ height: '80px', fontSize: '1.2em' }}
                 >
                   <IonIcon slot="start" icon={isRecording ? micOff : mic} size="large" />
                   {isRecording ? 'Stop Listening' : 'Start Voice Command'}
                 </IonButton>
               </div>
-              <p style={{ fontSize: '0.9em', color: '#888', textAlign: 'center' }}>
+              <p className="voice-command-hint">
                 Click to speak your automation question or command
               </p>
             </IonCardContent>
@@ -235,11 +236,10 @@ const VoiceAssistant: React.FC = () => {
               {response && (
                 <IonButton
                   expand="block"
-                  className="tech-button"
+                  className="tech-button response-play-button"
                   color="success"
                   onClick={playResponse}
                   disabled={isPlaying}
-                  style={{ marginTop: '1rem' }}
                 >
                   <IonIcon slot="start" icon={isPlaying ? pause : volumeHigh} />
                   {isPlaying ? 'Playing...' : 'Play Response'}
@@ -293,20 +293,20 @@ const VoiceAssistant: React.FC = () => {
               <IonCardTitle className="card-title">Voice Features</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <div className="feature-list">
+                <div className="feature-row">
                   <IonIcon icon={mic} color="primary" />
                   <span>Voice-to-text conversion</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={volumeHigh} color="success" />
                   <span>Text-to-speech responses</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={chatbubbleEllipses} color="secondary" />
                   <span>Context-aware automation advice</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={helpCircle} color="warning" />
                   <span>Industry-specific terminology</span>
                 </div>

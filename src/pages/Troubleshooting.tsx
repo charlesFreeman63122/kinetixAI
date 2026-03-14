@@ -150,12 +150,12 @@ const Troubleshooting: React.FC = () => {
               <IonCardTitle className="card-title">Upload Visual Evidence</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+              <div className="upload-control-wrap">
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handleImageUpload}
-                  style={{ display: 'none' }}
+                  className="hidden-file-input"
                   id="imageUpload"
                 />
                 <label htmlFor="imageUpload">
@@ -167,16 +167,11 @@ const Troubleshooting: React.FC = () => {
               </div>
 
               {uploadedImage && (
-                <div style={{ textAlign: 'center' }}>
+                <div className="preview-wrap">
                   <img
                     src={uploadedImage}
                     alt="Uploaded evidence"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '200px',
-                      borderRadius: '8px',
-                      border: `2px solid rgba(50, 116, 217, 0.3)`
-                    }}
+                    className="uploaded-evidence-image"
                   />
                 </div>
               )}
@@ -269,17 +264,8 @@ const Troubleshooting: React.FC = () => {
               <IonCardTitle className="card-title">AI Recommendations</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{
-                background: 'rgba(31, 31, 31, 0.5)',
-                padding: '1rem',
-                borderRadius: '8px',
-                border: '1px solid rgba(50, 116, 217, 0.2)',
-                minHeight: '100px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <p style={{ color: '#C7D0D9', textAlign: 'center', margin: 0 }}>
+              <div className="analysis-results-panel">
+                <p className="analysis-results-text">
                   AI analysis results will appear here after analysis
                 </p>
               </div>

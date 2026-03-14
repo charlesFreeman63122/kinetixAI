@@ -18,6 +18,7 @@ import {
   IonBackButton,
   IonToast,
   IonList,
+  IonItem,
   IonItem as IonListItem,
   IonAvatar,
   IonText,
@@ -27,7 +28,7 @@ import {
   chatbubbleEllipses,
   send,
   person,
-  robot,
+  hardwareChip,
   code,
   helpCircle,
   build,
@@ -150,41 +151,29 @@ const TextChat: React.FC = () => {
 
         <div className="cards-grid">
           {/* Chat Messages */}
-          <IonCard className="tech-card" style={{ height: '400px', display: 'flex', flexDirection: 'column' }}>
+          <IonCard className="tech-card chat-card">
             <IonCardHeader className="card-header">
               <IonCardTitle className="card-title">Conversation</IonCardTitle>
             </IonCardHeader>
-            <IonCardContent className="card-content" style={{ flex: 1, overflow: 'hidden' }}>
-              <div style={{ height: '300px', overflowY: 'auto', padding: '0.5rem' }}>
-                <IonList style={{ background: 'transparent' }}>
+            <IonCardContent className="card-content chat-card-content">
+              <div className="chat-scroll-wrap">
+                <IonList className="transparent-list">
                   {messages.map((message) => (
-                    <IonListItem key={message.id} style={{
-                      '--background': 'transparent',
-                      '--inner-padding-end': '0',
-                      '--inner-padding-start': '0',
-                      marginBottom: '1rem'
-                    }}>
+                    <IonListItem key={message.id} className="chat-message-item">
                       <IonAvatar slot="start">
                         <IonIcon
-                          icon={message.sender === 'user' ? person : robot}
-                          style={{
-                            color: message.sender === 'user' ? '#3274D9' : '#56A64B',
-                            fontSize: '1.5em'
-                          }}
+                          icon={message.sender === 'user' ? person : hardwareChip}
+                          className={`chat-avatar-icon ${message.sender === 'user' ? 'chat-avatar-user' : 'chat-avatar-ai'}`}
                         />
                       </IonAvatar>
-                      <div style={{ flex: 1 }}>
-                        <IonText style={{
-                          fontSize: '0.9em',
-                          color: message.sender === 'user' ? '#3274D9' : '#56A64B',
-                          fontWeight: 'bold'
-                        }}>
+                      <div className="chat-message-body">
+                        <IonText className={`chat-sender ${message.sender === 'user' ? 'chat-sender-user' : 'chat-sender-ai'}`}>
                           {message.sender === 'user' ? 'You' : 'AI Assistant'}
                         </IonText>
-                        <p style={{ margin: '0.25rem 0', lineHeight: '1.4' }}>
+                        <p className="chat-message-text">
                           {message.text}
                         </p>
-                        <IonText style={{ fontSize: '0.7em', color: '#888' }}>
+                        <IonText className="chat-message-time">
                           {message.timestamp.toLocaleTimeString()}
                         </IonText>
                       </div>
@@ -269,20 +258,20 @@ const TextChat: React.FC = () => {
               <IonCardTitle className="card-title">Chat Features</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <div className="feature-list">
+                <div className="feature-row">
                   <IonIcon icon={chatbubbleEllipses} color="primary" />
                   <span>Context-aware conversations</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={code} color="secondary" />
                   <span>Code examples and snippets</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={helpCircle} color="success" />
                   <span>Industry best practices</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={search} color="warning" />
                   <span>Detailed technical explanations</span>
                 </div>

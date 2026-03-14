@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { warningOutline, warningSharp, buildOutline, buildSharp, documentTextOutline, documentTextSharp, micOutline, micSharp, chatbubbleEllipsesOutline, chatbubbleEllipsesSharp, settingsOutline, settingsSharp } from 'ionicons/icons';
+import { warningOutline, warningSharp, buildOutline, buildSharp, documentTextOutline, documentTextSharp, micOutline, micSharp, chatbubbleEllipsesOutline, chatbubbleEllipsesSharp, settingsOutline, settingsSharp, bookmarkOutline } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {

@@ -195,20 +195,20 @@ const DesignControls: React.FC = () => {
               <IonCardTitle className="card-title">Design Features</IonCardTitle>
             </IonCardHeader>
             <IonCardContent className="card-content">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <div className="feature-list">
+                <div className="feature-row">
                   <IonIcon icon={checkmarkCircle} color="success" />
                   <span>Automatic I/O mapping</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={checkmarkCircle} color="success" />
                   <span>Code optimization</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={checkmarkCircle} color="success" />
                   <span>Safety compliance checks</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div className="feature-row">
                   <IonIcon icon={checkmarkCircle} color="success" />
                   <span>Documentation generation</span>
                 </div>
