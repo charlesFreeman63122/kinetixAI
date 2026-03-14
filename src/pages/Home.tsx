@@ -11,6 +11,26 @@ const Home: React.FC = () => {
     history.push('/troubleshooting');
   };
 
+  const navigateToDesignControls = () => {
+    history.push('/design-controls');
+  };
+
+  const navigateToAnalyzeControls = () => {
+    history.push('/analyze-controls');
+  };
+
+  const navigateToVoiceAssistant = () => {
+    history.push('/voice-assistant');
+  };
+
+  const navigateToTextChat = () => {
+    history.push('/text-chat');
+  };
+
+  const navigateToSettings = () => {
+    history.push('/settings');
+  };
+
   return (
     <IonPage className="dark-theme">
       <IonHeader className="home-header">
@@ -32,7 +52,7 @@ const Home: React.FC = () => {
             </IonCardHeader>
             <IonCardContent className="card-content">
               <p className="card-description">Use AI to design and optimize PLC and DCS control systems with intelligent suggestions.</p>
-              <IonButton expand="block" className="tech-button" color="primary">
+              <IonButton expand="block" className="tech-button" color="primary" onClick={navigateToDesignControls}>
                 <IonIcon slot="start" icon={build} />
                 Start Designing
               </IonButton>
@@ -45,7 +65,7 @@ const Home: React.FC = () => {
             </IonCardHeader>
             <IonCardContent className="card-content">
               <p className="card-description">Upload and analyze PLC/DCS ladder logic, schematics, and control programs.</p>
-              <IonButton expand="block" className="tech-button" color="secondary">
+              <IonButton expand="block" className="tech-button" color="secondary" onClick={navigateToAnalyzeControls}>
                 <IonIcon slot="start" icon={documentText} />
                 Analyze Controls
               </IonButton>
@@ -71,7 +91,7 @@ const Home: React.FC = () => {
             </IonCardHeader>
             <IonCardContent className="card-content">
               <p className="card-description">Speak naturally to get help with control design, troubleshooting, or system queries.</p>
-              <IonButton expand="block" className="tech-button" color="success">
+              <IonButton expand="block" className="tech-button" color="success" onClick={navigateToVoiceAssistant}>
                 <IonIcon slot="start" icon={mic} />
                 Voice Commands
               </IonButton>
@@ -84,7 +104,7 @@ const Home: React.FC = () => {
             </IonCardHeader>
             <IonCardContent className="card-content">
               <p className="card-description">Chat with AI for detailed explanations, code generation, and automation advice.</p>
-              <IonButton expand="block" className="tech-button" color="warning">
+              <IonButton expand="block" className="tech-button" color="warning" onClick={navigateToTextChat}>
                 <IonIcon slot="start" icon={chatbubbleEllipses} />
                 Start Chat
               </IonButton>
@@ -97,7 +117,7 @@ const Home: React.FC = () => {
             </IonCardHeader>
             <IonCardContent className="card-content">
               <p className="card-description">Configure your workspace, control standards, and AI preferences.</p>
-              <IonButton expand="block" className="tech-button" color="medium">
+              <IonButton expand="block" className="tech-button" color="medium" onClick={navigateToSettings}>
                 <IonIcon slot="start" icon={settings} />
                 Open Settings
               </IonButton>

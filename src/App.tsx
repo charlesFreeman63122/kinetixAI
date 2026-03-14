@@ -5,6 +5,11 @@ import Menu from './components/Menu';
 import Page from './pages/Page';
 import Home from './pages/Home';
 import Troubleshooting from './pages/Troubleshooting';
+import DesignControls from './pages/DesignControls';
+import AnalyzeControls from './pages/AnalyzeControls';
+import VoiceAssistant from './pages/VoiceAssistant';
+import TextChat from './pages/TextChat';
+import Settings from './pages/Settings';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -53,6 +58,21 @@ const App: React.FC = () => {
             </Route>
             <Route path="/troubleshooting" exact={true}>
               <Troubleshooting />
+            </Route>
+            <Route path="/design-controls" exact={true}>
+              <DesignControls />
+            </Route>
+            <Route path="/analyze-controls" exact={true}>
+              <AnalyzeControls />
+            </Route>
+            <Route path="/voice-assistant" exact={true}>
+              <VoiceAssistant />
+            </Route>
+            <Route path="/text-chat" exact={true}>
+              <TextChat />
+            </Route>
+            <Route path="/settings" exact={true}>
+              <Settings />
             </Route>
             <Route path="/folder/:name" exact={true}>
               <Page />

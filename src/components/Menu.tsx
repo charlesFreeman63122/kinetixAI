@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { warningOutline, warningSharp, buildOutline, buildSharp, documentTextOutline, documentTextSharp, micOutline, micSharp, chatbubbleEllipsesOutline, chatbubbleEllipsesSharp, settingsOutline, settingsSharp } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -23,46 +23,46 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
+    title: 'Home',
+    url: '/home',
+    iosIcon: buildOutline,
+    mdIcon: buildSharp
+  },
+  {
+    title: 'Design Controls',
+    url: '/design-controls',
+    iosIcon: buildOutline,
+    mdIcon: buildSharp
+  },
+  {
+    title: 'Analyze Controls',
+    url: '/analyze-controls',
+    iosIcon: documentTextOutline,
+    mdIcon: documentTextSharp
+  },
+  {
     title: 'Troubleshooting',
     url: '/troubleshooting',
     iosIcon: warningOutline,
     mdIcon: warningSharp
   },
   {
-    title: 'Inbox',
-    url: '/folder/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    title: 'Voice Assistant',
+    url: '/voice-assistant',
+    iosIcon: micOutline,
+    mdIcon: micSharp
   },
   {
-    title: 'Outbox',
-    url: '/folder/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp
+    title: 'Text Chat',
+    url: '/text-chat',
+    iosIcon: chatbubbleEllipsesOutline,
+    mdIcon: chatbubbleEllipsesSharp
   },
   {
-    title: 'Favorites',
-    url: '/folder/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
-  },
-  {
-    title: 'Archived',
-    url: '/folder/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp
-  },
-  {
-    title: 'Trash',
-    url: '/folder/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp
-  },
-  {
-    title: 'Spam',
-    url: '/folder/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
+    title: 'Settings',
+    url: '/settings',
+    iosIcon: settingsOutline,
+    mdIcon: settingsSharp
   }
 ];
 
