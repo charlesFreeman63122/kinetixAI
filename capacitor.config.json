@@ -1,0 +1,13 @@
+{
+  "appId": "com.decimanetwork.kinetix_ai",
+  "appName": "kinetix AI",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
