@@ -23,6 +23,12 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
+    title: 'Troubleshooting',
+    url: '/troubleshooting',
+    iosIcon: warningOutline,
+    mdIcon: warningSharp
+  },
+  {
     title: 'Inbox',
     url: '/folder/Inbox',
     iosIcon: mailOutline,
