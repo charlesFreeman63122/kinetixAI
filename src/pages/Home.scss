@@ -353,10 +353,19 @@ $glow-duration: 2s;
   .welcome-title {
     font-size: 2rem;
     letter-spacing: 1px;
+    animation: none;
+    text-shadow: 0 0 4px rgba($primary-color, 0.45);
+    -webkit-text-stroke: 0;
+    filter: none;
+
+    &::before {
+      display: none;
+    }
 
     &::after {
       width: 80px;
       height: 2px;
+      animation: none;
     }
   }
 
@@ -378,7 +387,11 @@ $glow-duration: 2s;
 
   .welcome-title {
     font-size: 1.8rem;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.35px;
+    font-weight: 800;
+    text-shadow: 0 0 2px rgba($primary-color, 0.35);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
 
     &::after {
       width: 60px;
