@@ -177,10 +177,10 @@ $glow-duration: 2s;
 .welcome-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #1DA1F2;
   text-shadow:
-    0 0 8px rgba(#ffffff, 0.45),
-    0 0 18px rgba($primary-color, 0.35);
+    0 0 8px rgba(#1DA1F2, 0.7),
+    0 0 18px rgba(#1DA1F2, 0.45);
   margin-bottom: 1rem;
   position: relative;
   letter-spacing: 2px;
@@ -348,8 +348,8 @@ $glow-duration: 2s;
     font-size: 2rem;
     letter-spacing: 1px;
     text-shadow:
-      0 0 6px rgba(#ffffff, 0.4),
-      0 0 12px rgba($primary-color, 0.25);
+      0 0 6px rgba(#1DA1F2, 0.65),
+      0 0 12px rgba(#1DA1F2, 0.4);
     -webkit-text-stroke: 0;
     filter: none;
 
@@ -388,7 +388,7 @@ $glow-duration: 2s;
     font-size: 1.8rem;
     letter-spacing: 0.35px;
     font-weight: 800;
-    text-shadow: 0 0 4px rgba(#ffffff, 0.38);
+    text-shadow: 0 0 6px rgba(#1DA1F2, 0.55);
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
 
