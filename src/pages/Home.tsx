@@ -42,6 +42,7 @@ const Home: React.FC = () => {
         <div className="circuit-pattern"></div>
         <div className="welcome-section">
           <h1 className="welcome-title">Engineer Your Automation Future</h1>
+          <p className="welcome-powered">Powered by AI</p>
           <p className="welcome-subtitle">AI-powered tools for PLC/DCS design, troubleshooting, and control system management.</p>
         </div>
 

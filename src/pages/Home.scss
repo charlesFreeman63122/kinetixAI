@@ -177,16 +177,11 @@ $glow-duration: 2s;
 .welcome-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: $text-primary;
+  color: #ffffff;
   text-shadow:
-    0 0 5px rgba($primary-color, 0.8),
-    0 0 10px rgba($primary-color, 0.6),
-    0 0 15px rgba($primary-color, 0.4),
-    0 0 20px rgba($primary-color, 0.3),
-    0 0 30px rgba($primary-color, 0.2),
-    0 0 40px rgba($primary-color, 0.1);
+    0 0 8px rgba(#ffffff, 0.45),
+    0 0 18px rgba($primary-color, 0.35);
   margin-bottom: 1rem;
-  animation: glow $glow-duration ease-in-out infinite alternate;
   position: relative;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -194,23 +189,13 @@ $glow-duration: 2s;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  // Futuristic text stroke
-  -webkit-text-stroke: 1px rgba($dark-bg, 0.8);
+  // Keep text sharp on high-density mobile displays.
+  -webkit-text-stroke: 0;
 
-  // Enhanced glow effect
-  filter: drop-shadow(0 0 10px rgba($primary-color, 0.5));
+  filter: none;
 
   &::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    background: linear-gradient(45deg, transparent, rgba($primary-color, 0.1), transparent);
-    z-index: -1;
-    border-radius: 8px;
-    animation: border-glow 3s ease-in-out infinite;
+    display: none;
   }
 
   &::after {
@@ -222,9 +207,18 @@ $glow-duration: 2s;
     width: 120px;
     height: 3px;
     background: linear-gradient(90deg, transparent, $primary-color, transparent);
-    animation: circuit-flow 4s linear infinite;
     border-radius: 2px;
   }
+}
+
+.welcome-powered {
+  color: lighten($primary-color, 14%);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: -0.25rem 0 0.8rem;
+  text-shadow: 0 0 6px rgba($primary-color, 0.35);
 }
 
 .welcome-subtitle {
@@ -353,8 +347,9 @@ $glow-duration: 2s;
   .welcome-title {
     font-size: 2rem;
     letter-spacing: 1px;
-    animation: none;
-    text-shadow: 0 0 4px rgba($primary-color, 0.45);
+    text-shadow:
+      0 0 6px rgba(#ffffff, 0.4),
+      0 0 12px rgba($primary-color, 0.25);
     -webkit-text-stroke: 0;
     filter: none;
 
@@ -365,8 +360,12 @@ $glow-duration: 2s;
     &::after {
       width: 80px;
       height: 2px;
-      animation: none;
     }
+  }
+
+  .welcome-powered {
+    font-size: 0.92rem;
+    letter-spacing: 1.2px;
   }
 
   .cards-grid {
@@ -389,7 +388,7 @@ $glow-duration: 2s;
     font-size: 1.8rem;
     letter-spacing: 0.35px;
     font-weight: 800;
-    text-shadow: 0 0 2px rgba($primary-color, 0.35);
+    text-shadow: 0 0 4px rgba(#ffffff, 0.38);
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
 
@@ -397,6 +396,11 @@ $glow-duration: 2s;
       width: 60px;
       height: 2px;
     }
+  }
+
+  .welcome-powered {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
   }
 
   .welcome-subtitle {
@@ -449,10 +453,6 @@ $glow-duration: 2s;
 
 // Reduced motion for accessibility
 @media (prefers-reduced-motion: reduce) {
-  .welcome-title {
-    animation: none;
-  }
-
   .tech-card {
     transition: none;
 
